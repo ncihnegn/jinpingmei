@@ -170,7 +170,7 @@
   }
 \cs_new_protected_nopar:Npn \@@_toc_chapter:nnn
   {
-    \int_compare:nNnTF { \value { tocdepth } } > \c_minus_one
+    \int_compare:nNnTF { \value { tocdepth } } > -\c_one
       { \@@_toc_chapter_aux:nnn }
       { \use_none:nnn }
   }
@@ -203,7 +203,7 @@
   { \tex_leaders:D \box_use:N \l_@@_cdot_box \tex_hfill:D }
 \box_new:N \l_@@_cdot_box
 \hbox_set_to_wd:Nnn \l_@@_cdot_box { 8pt }
-  { \tex_hss:D \textcdot \tex_hss:D }
+  { \tex_hss:D \textperiodcentered \tex_hss:D }
 \cs_new_protected_nopar:Npn \@@_hyper_link:nn
   { \hyper@link { link } }
 \cs_new_protected:Npn \@@_toc_label:nn #1#2
@@ -333,7 +333,7 @@
     \hbox_to_wd:nn { \f@size pt }
       {
         \hbox_set:Nn \l_tmpa_box {#1}
-        \box_trim:Nnnnn \l_tmpa_box
+        \box_set_trim:Nnnnn \l_tmpa_box
           { 0pt } { 0pt } { #3 \box_wd:N \l_tmpa_box } { 0pt }
         \box_clip:N \l_tmpa_box
         \box_use:N \l_tmpa_box
