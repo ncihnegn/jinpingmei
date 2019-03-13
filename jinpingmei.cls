@@ -170,7 +170,7 @@
   }
 \cs_new_protected_nopar:Npn \@@_toc_chapter:nnn
   {
-    \int_compare:nNnTF { \value { tocdepth } } > -\c_one
+    \int_compare:nNnTF { \value { tocdepth } } > {-\c_one}
       { \@@_toc_chapter_aux:nnn }
       { \use_none:nnn }
   }
